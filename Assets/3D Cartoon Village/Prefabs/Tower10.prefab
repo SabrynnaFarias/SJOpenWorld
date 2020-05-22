@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4325083974998458}
-  - component: {fileID: 5246659529765818215}
+  - component: {fileID: 4365063461803640558}
   m_Layer: 0
   m_Name: Tower10
   m_TagString: Untagged
@@ -143,8 +143,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &5246659529765818215
-MeshCollider:
+--- !u!65 &4365063461803640558
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -153,7 +153,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 3.0546188, y: 4.286087, z: 3.034565}
+  m_Center: {x: -1.4164429, y: 2.122635, z: 1.4915028}
