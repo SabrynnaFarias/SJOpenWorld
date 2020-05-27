@@ -3216,10 +3216,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4395045176784062}
-  - component: {fileID: 7830615413023347267}
+  - component: {fileID: 7705466666725877351}
   m_Layer: 0
   m_Name: House
-  m_TagString: Untagged
+  m_TagString: Obj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3239,8 +3239,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &7830615413023347267
-MeshCollider:
+--- !u!65 &7705466666725877351
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3249,10 +3249,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 4.0156584, y: 4.6431417, z: 3.7831867}
+  m_Center: {x: -1.5257202, y: 2.3002508, z: -1.7070562}
 --- !u!1 &1930116517117172
 GameObject:
   m_ObjectHideFlags: 0
