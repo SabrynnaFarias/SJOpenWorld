@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6274009194817995576}
   m_Layer: 0
   m_Name: BolaAMulti
-  m_TagString: Untagged
+  m_TagString: Shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
