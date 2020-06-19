@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Derrota;
 
     public AudioSource Sounds;
+    public bool Wait;
 
     void Start()
     {
@@ -40,61 +41,65 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         if (!Die)
         {
-            if (characterController.isGrounded)
+            if (!Wait)
             {
-                if (!Atk)
+                if (characterController.isGrounded)
                 {
-
-                    Vector3 forward = transform.TransformDirection(Vector3.forward);
-                    Vector3 right = transform.TransformDirection(Vector3.right);
-                    float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
-                    float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
-                    moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-
-                    float Check = curSpeedX + curSpeedY;
-                    if (Check == 0)
+                    if (!Atk)
                     {
-                        Anin.SetBool("isIddle", true);
-                        Anin.SetBool("isWalk", false);
-                    }
-                    else
-                    {
-                        Anin.SetBool("isWalk", true);
-                        Anin.SetBool("isIddle", false);
-                    }
 
-                    if (Input.GetButton("Jump") && canMove)
-                    {
-                        moveDirection.y = jumpSpeed;
-                        Anin.SetTrigger("isJump");
+                        Vector3 forward = transform.TransformDirection(Vector3.forward);
+                        Vector3 right = transform.TransformDirection(Vector3.right);
+                        float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
+                        float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
+                        moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+
+                        float Check = curSpeedX + curSpeedY;
+                        if (Check == 0)
+                        {
+                            Anin.SetBool("isIddle", true);
+                            Anin.SetBool("isWalk", false);
+                        }
+                        else
+                        {
+                            Anin.SetBool("isWalk", true);
+                            Anin.SetBool("isIddle", false);
+                        }
+
+                        if (Input.GetButton("Jump") && canMove)
+                        {
+                            moveDirection.y = jumpSpeed;
+                            Anin.SetTrigger("isJump");
+                        }
                     }
                 }
-            }
 
 
-            TimeToAttack += Time.deltaTime;
-            if (Input.GetKeyDown(KeyCode.Q) && TimeToAttack >= 2)
-            {
-                Atk = true;
-                TimeToAttack = 0;
-                Anin.SetTrigger("isAttack");
+                TimeToAttack += Time.deltaTime;
+                if (Input.GetKeyDown(KeyCode.Q) && TimeToAttack >= 2)
+                {
+                    Atk = true;
+                    TimeToAttack = 0;
+                    Anin.SetTrigger("isAttack");
 
-                Sounds.Play();
-                Invoke("Cancel", 1f);
+                    Sounds.Play();
+                    Invoke("Cancel", 1f);
 
-            }
+                }
 
-            moveDirection.y -= gravity * Time.deltaTime;
-            characterController.Move(moveDirection * Time.deltaTime);
-            if (canMove)
-            {
-                rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
-                rotation.x += -Input.GetAxis("Mouse Y") * lookSpeed;
-                rotation.x = Mathf.Clamp(rotation.x, -lookXLimit, lookXLimit);
-                playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
-                transform.eulerAngles = new Vector2(0, rotation.y);
+                moveDirection.y -= gravity * Time.deltaTime;
+                characterController.Move(moveDirection * Time.deltaTime);
+                if (canMove)
+                {
+                    rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
+                    rotation.x += -Input.GetAxis("Mouse Y") * lookSpeed;
+                    rotation.x = Mathf.Clamp(rotation.x, -lookXLimit, lookXLimit);
+                    playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
+                    transform.eulerAngles = new Vector2(0, rotation.y);
+                }
             }
         }
     }
