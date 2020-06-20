@@ -15,27 +15,47 @@ public class AcceptShiner : MonoBehaviour
 
     PlayerMovement PM;
 
+    public GameObject ThisDungeon;
+    public GameObject Info;
+
 
     private void FixedUpdate()
     {
         if (Enter && !InTransition)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 PM.Wait = true;
 
                 InTransition = true;
                 Fade.Play();
 
-                Invoke("Transition",2);
+                Invoke("Transition",3);
+                Invoke("ShowDungeon", 2);
+
             }
         }
     }
 
+    void ShowDungeon()
+    {
+        ThisDungeon.SetActive(true);
+    }
+
     void Transition()
     {
+        Info.SetActive(true);
         PlayerPosition.position = new Vector3(SpawnToShiner.position.x, SpawnToShiner.position.y, SpawnToShiner.position.z);
         Debug.Log("Entrando na Dungeon!");
+
+        Invoke("CancelInfo", 3);
+    }
+
+    void CancelInfo()
+    {
+        Info.SetActive(false);
+        PM.Wait = false;
+        PM.jumpSpeed = 15;
     }
 
     private void OnTriggerEnter(Collider other)
