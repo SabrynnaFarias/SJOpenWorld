@@ -30,8 +30,8 @@ public class AcceptShiner : MonoBehaviour
                 InTransition = true;
                 Fade.Play();
 
-                Invoke("Transition",2);
-                Invoke("ShowDungeon", 1);
+                Invoke("Transition",3);
+                Invoke("ShowDungeon", 2);
 
 
 
