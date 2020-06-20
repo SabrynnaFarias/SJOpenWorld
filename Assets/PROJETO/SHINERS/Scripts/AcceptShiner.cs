@@ -30,8 +30,8 @@ public class AcceptShiner : MonoBehaviour
                 InTransition = true;
                 Fade.Play();
 
-                Invoke("Transition",3);
-                Invoke("ShowDungeon", 2);
+                Invoke("Transition",2);
+                Invoke("ShowDungeon", 1);
 
             }
         }
@@ -55,7 +55,7 @@ public class AcceptShiner : MonoBehaviour
     {
         Info.SetActive(false);
         PM.Wait = false;
-        PM.jumpSpeed = 15;
+        PM.jumpSpeed = 30;
     }
 
     private void OnTriggerEnter(Collider other)

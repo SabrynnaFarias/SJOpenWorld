@@ -6,6 +6,11 @@ public class Dead : MonoBehaviour
 {
     public Transform pos;
 
+    private void Start()
+    {
+        
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
