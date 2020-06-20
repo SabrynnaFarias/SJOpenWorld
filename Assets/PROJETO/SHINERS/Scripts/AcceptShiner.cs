@@ -33,12 +33,15 @@ public class AcceptShiner : MonoBehaviour
                 Invoke("Transition",2);
                 Invoke("ShowDungeon", 1);
 
+
+
             }
         }
     }
 
     void ShowDungeon()
     {
+        PM.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
         ThisDungeon.SetActive(true);
     }
 
