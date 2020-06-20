@@ -8,6 +8,7 @@ public class ShowDungeon : MonoBehaviour
     bool InProcess;
 
     public AudioSource Sound;
+    public GameObject DisabledMission;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +17,8 @@ public class ShowDungeon : MonoBehaviour
             InProcess = true;
             Show.Play();
             Sound.Play();
+
+            DisabledMission.SetActive(false);
            
         }
     }

@@ -35,10 +35,14 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform pos;
 
+    
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         rotation.y = transform.eulerAngles.y;
+
+        
     }
 
     void Update()

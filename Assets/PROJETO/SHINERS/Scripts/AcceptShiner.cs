@@ -18,6 +18,7 @@ public class AcceptShiner : MonoBehaviour
     public GameObject ThisDungeon;
     public GameObject Info;
 
+    
 
     private void FixedUpdate()
     {
@@ -71,7 +72,7 @@ public class AcceptShiner : MonoBehaviour
             Enter = true;
             PlayerPosition = other.transform;
             PM = other.GetComponent<PlayerMovement>();
-
+            
             UI.SetActive(true);
             ShowInfo = true;
             Invoke("Disabled", 3);
