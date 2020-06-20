@@ -42,6 +42,7 @@ public class AcceptShiner : MonoBehaviour
     void ShowDungeon()
     {
         PM.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+        PM.pos = SpawnToShiner;
         ThisDungeon.SetActive(true);
     }
 
@@ -49,6 +50,8 @@ public class AcceptShiner : MonoBehaviour
     {
         Info.SetActive(true);
         PlayerPosition.position = new Vector3(SpawnToShiner.position.x, SpawnToShiner.position.y, SpawnToShiner.position.z);
+        PM.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+
         Debug.Log("Entrando na Dungeon!");
 
         Invoke("CancelInfo", 3);

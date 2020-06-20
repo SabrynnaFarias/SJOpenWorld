@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource Sounds;
     public bool Wait;
 
+    public Transform pos;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -136,6 +138,20 @@ public class PlayerMovement : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Dead")
+        {
+
+            ResetPosition();
+
+        }
+    }
+
+    void ResetPosition()
+    {
+        this.transform.position = new Vector3(pos.position.x, pos.position.y, pos.position.z);
+    }
 
 
 }
